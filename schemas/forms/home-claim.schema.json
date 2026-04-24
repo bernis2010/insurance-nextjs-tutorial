@@ -1,0 +1,59 @@
+{
+  "formId": "home",
+  "title": "Home Insurance Claim",
+  "description": "Collect property, incident, and repair intake information with supporting documents.",
+  "submitLabel": "Submit home claim",
+  "parts": [
+    {
+      "id": "property",
+      "title": "Property and policyholder",
+      "description": "Identify the insured property and claimant contact details.",
+      "sections": [
+        {
+          "id": "property-contact",
+          "title": "Property details",
+          "fields": [
+            { "name": "ownerName", "label": "Policyholder name", "type": "text", "required": true, "placeholder": "Alex Carter" },
+            { "name": "homePolicyNumber", "label": "Home policy number", "type": "text", "required": true, "placeholder": "HOME-447700" },
+            { "name": "propertyAddress", "label": "Property address", "type": "text", "required": true, "placeholder": "10403 Example Drive, Arcola, TX" },
+            { "name": "preferredContact", "label": "Preferred contact email", "type": "email", "required": true, "placeholder": "alex@example.com" }
+          ]
+        }
+      ]
+    },
+    {
+      "id": "loss",
+      "title": "Loss details",
+      "description": "Capture the cause and scale of the incident.",
+      "sections": [
+        {
+          "id": "incident-summary",
+          "title": "Incident summary",
+          "fields": [
+            { "name": "incidentDate", "label": "Date of incident", "type": "date", "required": true },
+            { "name": "incidentType", "label": "Type of incident", "type": "select", "required": true, "options": ["Water damage", "Fire", "Wind/Hail", "Theft", "Other"] },
+            { "name": "incidentOther", "label": "Describe the incident type", "type": "text", "required": true, "showIf": { "field": "incidentType", "equals": "Other" }, "placeholder": "Tree limb impact" },
+            { "name": "estimatedLoss", "label": "Estimated loss amount", "type": "number", "required": true, "placeholder": "12000" },
+            { "name": "incidentNarrative", "label": "What happened?", "type": "textarea", "required": true, "placeholder": "Water line burst in upstairs bathroom and damaged ceiling below." }
+          ]
+        }
+      ]
+    },
+    {
+      "id": "documentation",
+      "title": "Photos and documents",
+      "description": "Attach proof of damage and any contractor or emergency service records.",
+      "sections": [
+        {
+          "id": "supporting-docs",
+          "title": "Supporting documents",
+          "fields": [
+            { "name": "propertyPhotos", "label": "Damage photos", "type": "file", "required": true, "accept": ".jpg,.jpeg,.png,.pdf", "multiple": true },
+            { "name": "emergencyMitigation", "label": "Emergency mitigation invoice", "type": "file", "required": false, "accept": ".pdf,.jpg,.jpeg,.png", "multiple": false },
+            { "name": "contractorEstimate", "label": "Contractor estimate", "type": "file", "required": false, "accept": ".pdf,.jpg,.jpeg,.png", "multiple": false }
+          ]
+        }
+      ]
+    }
+  ]
+}

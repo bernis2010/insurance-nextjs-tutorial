@@ -1,0 +1,60 @@
+{
+  "formId": "auto",
+  "title": "Auto Insurance Claim",
+  "description": "Capture driver, accident, and vehicle damage information with supporting files.",
+  "submitLabel": "Submit auto claim",
+  "parts": [
+    {
+      "id": "policyholder",
+      "title": "Policyholder information",
+      "description": "Confirm who is filing and how the adjuster can reach them.",
+      "sections": [
+        {
+          "id": "contact",
+          "title": "Contact details",
+          "fields": [
+            { "name": "fullName", "label": "Full name", "type": "text", "required": true, "placeholder": "Jordan Smith" },
+            { "name": "policyNumber", "label": "Policy number", "type": "text", "required": true, "placeholder": "AUTO-123456" },
+            { "name": "email", "label": "Email", "type": "email", "required": true, "placeholder": "jordan@example.com" },
+            { "name": "phone", "label": "Phone number", "type": "text", "required": true, "placeholder": "(555) 123-4567" }
+          ]
+        }
+      ]
+    },
+    {
+      "id": "incident",
+      "title": "Accident details",
+      "description": "Record what happened and whether public responders were involved.",
+      "sections": [
+        {
+          "id": "accident-info",
+          "title": "Accident information",
+          "fields": [
+            { "name": "accidentDate", "label": "Date of accident", "type": "date", "required": true },
+            { "name": "accidentLocation", "label": "Location of accident", "type": "text", "required": true, "placeholder": "Houston, TX" },
+            { "name": "policeReportFiled", "label": "Was a police report filed?", "type": "radio", "required": true, "options": ["Yes", "No"] },
+            { "name": "policeReportNumber", "label": "Police report number", "type": "text", "showIf": { "field": "policeReportFiled", "equals": "Yes" }, "required": true, "placeholder": "HPD-2026-0091" },
+            { "name": "accidentDescription", "label": "Accident description", "type": "textarea", "required": true, "placeholder": "Describe the sequence of events." }
+          ]
+        }
+      ]
+    },
+    {
+      "id": "damage",
+      "title": "Damage and supporting files",
+      "description": "Gather damage details and upload photos or documents.",
+      "sections": [
+        {
+          "id": "vehicle-damage",
+          "title": "Vehicle damage",
+          "fields": [
+            { "name": "vehicleDrivable", "label": "Is the vehicle drivable?", "type": "radio", "required": true, "options": ["Yes", "No"] },
+            { "name": "damageDescription", "label": "Describe the damage", "type": "textarea", "required": true, "placeholder": "Front bumper cracked, right headlight broken." },
+            { "name": "damagePhotos", "label": "Upload damage photos", "type": "file", "required": true, "accept": ".jpg,.jpeg,.png,.pdf", "multiple": true, "description": "Attach one or more photos or a PDF estimate." },
+            { "name": "towReceipt", "label": "Tow receipt", "type": "file", "required": false, "accept": ".pdf,.jpg,.jpeg,.png", "multiple": false }
+          ]
+        }
+      ]
+    }
+  ]
+}
